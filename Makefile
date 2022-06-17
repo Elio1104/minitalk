@@ -6,8 +6,8 @@ NAME_CL		= client
 NAME_SV		= server
 LIBFT		= libft
 INC			= inc/
-SRC_DIR		= src/
-OBJ_DIR		= obj/
+SRCS_DIR	= src/
+OBJS_DIR	= obj/
 CC			= gcc
 CFLAGS		= -Wall -Werror -Wextra
 RM			= rm -f
@@ -39,3 +39,16 @@ OBJSV 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRCSV_FILES)))
 ###
 
 OBJF		=	.cache_exists
+
+start:
+			@make -C $(LIBFT)
+			@cp $(LIBFT)/libft.a .
+			@echo -e -n "$(YELLOW)[Minitalk]:\t$(DEF_COLOR)"
+			@echo -e -n "$(RED)[$(DEF_COLOR)"
+			@make mandatory
+			@make $(NAME_CL)
+			@make $(NAME_SV)
+			@echo -e -n "$(RED)]$(DEF_COLOR)"
+
+mandatory:
+			
