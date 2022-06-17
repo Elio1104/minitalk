@@ -5,11 +5,12 @@ SHELL	=	/bin/bash
 NAME_CL		= client
 NAME_SV		= server
 LIBFT		= libft
-INC			= inc/
+INC			= inc
+HEADER		= -I inc
 SRCS_DIR	= src/
 OBJS_DIR	= obj/
 CC			= gcc
-CFLAGS		= -Wall -Werror -Wextra
+FLAGS		= -Wall -Werror -Wextra
 RM			= rm -f
 ECHO		= echo -e
 
@@ -43,12 +44,26 @@ OBJF		=	.cache_exists
 start:
 			@make -C $(LIBFT)
 			@cp $(LIBFT)/libft.a .
-			@echo -e -n "$(YELLOW)[Minitalk]:\t$(DEF_COLOR)"
-			@echo -e -n "$(RED)[$(DEF_COLOR)"
-			@make mandatory
-			@make $(NAME_CL)
-			@make $(NAME_SV)
-			@echo -e -n "$(RED)]$(DEF_COLOR)"
+			@$(ECHO) -n "$(YELLOW)[Minitalk]:\t$(DEF_COLOR)"
+			@$(ECHO) -n "$(RED)[$(DEF_COLOR)"
+			@make all
+			@$(ECHO) -n "$(RED)]$(DEF_COLOR)"
 
-mandatory:
+all:		$(NAME_CL) $(NAME_SV)
+
+$(NAME_CL):	$(OBJCL) $(OBJF)
+			@$(CC) $(FLAGS) $(OBJCL) $(HEADER) libft.a -o $(NAME_CL)
+
+$(NAME_SV):	$(OBJSV) $(OBJF)
+			@$(CC) $(FLAGS) $(OBJSV) $(HEADER) libft.a -o $(NAME_SV)
+		
+$(OBJS_DIR)%.o: $(SRCS_DIR)%.c $(OBJF)
+			@$(ECHO) -n "$(ORANGE)=$(DEF_COLOR)"
+			@$(CC) $(FLAGS) $(HEADER) -c $< -o $@
+
+$(OBJF):
+			@mkdir -p $(OBJ_DIR)
+			@touch $(OBJF)
+
+
 			
