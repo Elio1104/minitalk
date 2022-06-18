@@ -71,19 +71,19 @@ OBJS 		= 	$(addprefix $(OBJS_DIR), $(addsuffix .o, $(SRC_FILES)))
 OBJF		=	.cache_exists
 
 start:
-			@echo -e -n "$(YELLOW)[LIBFT]:\t$(DEF_COLOR)"
-			@echo -e -n "$(RED)[$(DEF_COLOR)"
+			@$(ECHO) -n "$(YELLOW)[LIBFT]:\t$(DEF_COLOR)"
+			@$(ECHO) -n "$(RED)[$(DEF_COLOR)"
 			@make all
 
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
 			@$(AR) $(NAME) $(OBJS)
-			@echo -e -n "$(RED)]$(DEF_COLOR)"
+			@$(ECHO) -n "$(RED)]$(DEF_COLOR)"
 			@$(ECHO) "$(GREEN) => 100%$(DEF_COLOR)"
 
 $(OBJS_DIR)%.o : $(SRCS_DIR)%.c | $(OBJF)
-			@echo -e -n "$(ORANGE)=$(DEF_COLOR)"
+			@$(ECHO) -n "$(ORANGE)=$(DEF_COLOR)"
 			@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(OBJF):
@@ -105,10 +105,10 @@ clean:
 
 fclean:		clean
 			@$(RM) $(NAME)
-			@echo -e -n "$(CYAN)[LIBFT]:\texec. files$(DEF_COLOR)$(GREEN)  => Cleaned!$(DEF_COLOR)\n"
+			@$(ECHO) -n "$(CYAN)[LIBFT]:\texec. files$(DEF_COLOR)$(GREEN)  => Cleaned!$(DEF_COLOR)\n"
 
 re:			fclean start
-			@echo -e -n "$(GREEN)Cleaned and rebuilt everything for libft!$(DEF_COLOR)\n"
+			@$(ECHO) -n "$(GREEN)Cleaned and rebuilt everything for libft!$(DEF_COLOR)\n"
 
 norm:
 			@norminette $(SRCS) $(INCLUDES) | grep -v Norme -B1 || true
