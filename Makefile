@@ -16,15 +16,16 @@ ECHO		= echo -e
 
 # Colors
 
-DEF_COLOR = \033[0;39m
-GRAY = \033[0;90m
-RED = \033[0;91m
-GREEN = \033[0;92m
-YELLOW = \033[0;93m
-BLUE = \033[0;94m
-MAGENTA = \033[0;95m
-CYAN = \033[0;96m
-WHITE = \033[0;97m
+DEF_COLOR	=	\033[0;39m
+ORANGE		=	\033[0;33m
+GRAY		=	\033[0;90m
+RED			=	\033[0;91m
+GREEN		=	\033[1;92m
+YELLOW		=	\033[1;93m
+BLUE		=	\033[0;94m
+MAGENTA		=	\033[0;95m
+CYAN		=	\033[0;96m
+WHITE		=	\033[0;97m
 
 # Sources
 
@@ -69,13 +70,14 @@ clean:
 			@$(RM) -r $(OBJ_DIR)
 			@$(RM) $(OBJF)
 			@make clean -C $(LIBFT)
-			@$(ECHO) -n "$(BLUE)[minitalk]:\tobject files$(DEF_COLOR)$(GREEN)  => Cleaned!$(DEF_COLOR)\n"
+			@$(ECHO) -n "$(BLUE)[Minitalk]:\tobject files$(DEF_COLOR)$(GREEN)  => Cleaned!$(DEF_COLOR)\n"
 
 fclean:		clean
-			@make fclean -C $(LIBFT)
 			@$(RM) $(NAME_CL) $(NAME_SV)
+			@$(RM) $(LIBFT)/libft.a
 			@$(RM) libft.a
-			@$(ECHO) -n "$(CYAN)[minitalk]:\texec. files$(DEF_COLOR)$(GREEN)  => Cleaned!$(DEF_COLOR)\n"
+			@$(ECHO) -n "$(CYAN)[LIBFT]:\texec. files$(DEF_COLOR)$(GREEN)  => Cleaned!$(DEF_COLOR)\n"
+			@$(ECHO) -n "$(CYAN)[Minitalk]:\texec. files$(DEF_COLOR)$(GREEN)  => Cleaned!$(DEF_COLOR)\n"
 
 re:			fclean start
 			@$(ECHO) -n "$(GREEN)Cleaned and rebuilt everything for [minitalk]!$(DEF_COLOR)\n"
