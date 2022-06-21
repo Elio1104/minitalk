@@ -29,7 +29,7 @@ int main(int argc, char **argv)
     }
     pid = getpid();
     ft_printf("PID : %d\n", pid);
-    ft_printf("Waiting for client...\n")
+    ft_printf("Waiting for client...\n");
     while (1)
     {
         signal(SIGUSR1, ft_signal);
