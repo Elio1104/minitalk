@@ -80,7 +80,7 @@ fclean:		clean
 			@$(ECHO) -n "$(CYAN)[Minitalk]:\texec. files$(DEF_COLOR)$(GREEN)  => Cleaned!$(DEF_COLOR)\n"
 
 re:			fclean start
-			@$(ECHO) -n "$(GREEN)Cleaned and rebuilt everything for [minitalk]!$(DEF_COLOR)\n"
+			@$(ECHO) -n "\n$(GREEN)Cleaned and rebuilt everything for [Minitalk]!$(DEF_COLOR)\n"
 
 norm:
 			@clear
