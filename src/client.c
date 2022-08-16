@@ -46,6 +46,7 @@ int	main(int argc, char **argv)
 		ft_send_bits(pid, argv[2][i]);
 		i++;
 	}
+	ft_send_bits(pid, '\0');
 	ft_send_bits(pid, '\n');
 	return (0);
 }
